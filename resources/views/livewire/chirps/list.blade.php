@@ -12,12 +12,12 @@ new class extends Component
     public function mount(): void
     {
         $this->getChirps();
+    }
 
-        #[On('chirp-created')]
-        public function getChirps(): void
-        {
-            $this->chirps = Chirp::with('user')->latest()->get();
-        }
+    #[On('chirp-created')]
+    public function getChirps(): void
+    {
+        $this->chirps = Chirp::with('user')->latest()->get();
     }
 }; ?>
 
